@@ -1,0 +1,44 @@
+function read_size() : integer
+var
+   n:integer;
+begin
+    repeat
+       read(n);
+    until (n<=0 or n>10)
+    return n;
+end
+procedure read_array(n:integer, var T:array_of integer)
+var
+  i:integer;
+begin
+    for i from 0 to n do
+        read (T[i]);
+    end for
+
+end
+procedure dot_product (n:integer ,var ps, var T1,T2 :array_of integer)
+  var
+    i,j:integer;
+  begin 
+   for i from 0 to n do
+      for j from 0 to n do 
+       ps := ps + (T1[i]*T2[j]);
+       end for
+    end for
+   end 
+
+Algorithm Dot_product
+VAR 
+  V1,V2 : ARRAY_OF INTEGER [10];
+  i,j,n : integer;
+  ps : float :=0;
+begin
+  n:= read_size();
+  read_array(n,V1);
+  read_array(n,V2);
+  dot_product(n,ps,V1,V2);
+  write(ps);
+  if (ps=0) then
+  write ("V1 and V2 are orthogonal");
+  end if 
+end
